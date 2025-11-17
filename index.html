@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>АйТи-группа ATK 24-51</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div>
+        <h1>АйТи‑группа ATK 24‑51</h1>
+        <p class="lead">Твой билет в мир настоящих технологий — программируем, автоматизируем, создаём.</p>
+      </div>
+      <nav aria-label="Основная навигация" id="top-nav">
+        <button class="tab-btn active" data-tab="about">О группе</button>
+        <button class="tab-btn" data-tab="schedule">Расписание</button>
+        <button class="tab-btn" data-tab="news">Новости</button>
+        <button class="tab-btn" data-tab="gallery">Галерея</button>
+        <button class="tab-btn" data-tab="contacts">Контакты</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="about" class="tab-panel active container" aria-labelledby="О группе">
+      <div class="card about">
+        <img src="assets/team.svg" alt="Группа студентов" />
+        <div>
+          <h2>Кто мы?</h2>
+          <p>Мы — команда ATK 24‑51. Айтишники нового поколения: учим C++, Python, JavaScript, строим базы данных и крутые сайты.</p>
+          <ul>
+            <li><strong>Темы:</strong> программирование, автоматизация, базы данных, кибербезопасность</li>
+            <li><strong>Мероприятия:</strong> хакатоны, мастер-классы, совместные проекты</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="tab-panel container" hidden>
+      <div class="card">
+        <h2>Расписание на неделю</h2>
+        <div class="table-wrap" tabindex="0">
+          <table class="schedule-table" aria-describedby="schedule-desc">
+            <caption id="schedule-desc">Расписание занятий группы ATK 24‑51</caption>
+            <thead>
+              <tr><th>День</th><th>Время</th><th>Предмет</th><th>Преподаватель</th><th>Аудитория</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Понедельник</td><td>09:00–10:20</td><td>Дискретные структуры (лекция)</td><td>Кулдашева Н.К.</td><td>101</td></tr>
+              <tr><td>Понедельник</td><td>10:30–11:50</td><td>Электроника</td><td>Акрамов Н.С.</td><td>202</td></tr>
+              <tr><td>Вторник</td><td>09:00–10:20</td><td>Базы данных</td><td>Мусаджанова Д.А.</td><td>404</td></tr>
+              <tr><td>Среда</td><td>14:00–15:20</td><td>Компьютерные сети</td><td>Насриддинов Б.З.</td><td>307</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="tab-panel container" hidden>
+      <div class="card">
+        <div class="card-head">
+          <h2>Новости и события</h2>
+          <div class="news-controls">
+            <input id="news-search" type="search" placeholder="Поиск по новостям..." aria-label="Поиск по новостям" />
+            <button id="add-news" class="btn">Добавить новость</button>
+          </div>
+        </div>
+        <ul id="news-list" class="news-list" aria-live="polite"></ul>
+      </div>
+
+      <!-- News modal -->
+      <div id="news-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content">
+          <button class="modal-close" aria-label="Закрыть">&times;</button>
+          <h3 id="modal-title">Добавить / Редактировать новость</h3>
+          <form id="news-form">
+            <label>Текст новости
+              <textarea id="news-text" required rows="4"></textarea>
+            </label>
+            <label>Изображение (URL или файл)
+              <input id="news-image-url" type="url" placeholder="https://..." />
+              <input id="news-image-file" type="file" accept="image/*" />
+            </label>
+            <div class="modal-actions">
+              <button type="submit" class="btn primary">Сохранить</button>
+              <button type="button" class="btn" id="modal-cancel">Отмена</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="tab-panel container" hidden>
+      <div class="card">
+        <h2>Галерея группы</h2>
+        <div class="gallery-actions">
+          <input id="gallery-file" type="file" accept="image/*" multiple />
+          <button id="clear-gallery" class="btn">Очистить</button>
+        </div>
+        <div id="gallery-grid" class="gallery-grid" aria-live="polite"></div>
+      </div>
+      <div id="viewer" class="viewer" hidden>
+        <button id="viewer-close" aria-label="Закрыть просмотр">×</button>
+        <img src="" alt="Просмотр фото" />
+      </div>
+    </section>
+
+    <section id="contacts" class="tab-panel container" hidden>
+      <div class="card">
+        <h2>Контакты и обратная связь</h2>
+        <ul class="contacts-list">
+          <li><strong>Email:</strong> atc24-51@example.com</li>
+          <li><strong>Телефон:</strong> +7 (123) 456-78-90</li>
+          <li><strong>Telegram:</strong> <a href="https://t.me/iittlit" target="_blank" rel="noopener"> @iittlit</a></li>
+        </ul>
+        <form id="contact-form" class="contact-form" novalidate>
+          <label>Ваше имя <input id="cf-name" required /></label>
+          <label>Email <input id="cf-email" type="email" required /></label>
+          <label>Сообщение <textarea id="cf-message" rows="4" required></textarea></label>
+          <div><button type="submit" class="btn primary">Отправить</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="toasts" aria-live="polite" class="toasts" hidden></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2025 АйТи-группа ATK 24‑51. Все права защищены.
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
